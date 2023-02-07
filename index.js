@@ -22,6 +22,9 @@ app.listen(PORT, () => console.log(`Server is Running on http://localhost:${PORT
 app.use(bodyParser.json());
 app.use(cors())
 
+app.get('/', (req, res) => {
+  res.send('use /products in the url to get all products')
+});
 //get all products
 app.get('/products', (req, res) => {
   connection.execute("SELECT * FROM products", (err, data) => {
